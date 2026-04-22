@@ -6,21 +6,8 @@ def home(request):
     return render(request, 'books/home.html', {'books': books})
 
 
-def detail_book(request, id):
+def detail(request, id):
     book = get_object_or_404(Book, id=id)
-    return render(request, 'books/detail_book.html', {'book': book})
+    return render(request, 'books/detail.html', {'book': book})
 
 
-def edit_book(request, id):
-    book = get_object_or_404(Book, id=id)
-    return render(request, 'books/detail_book.html', {'book': book})
-
-
-def delete_book(request, id):
-    book = get_object_or_404(Book, id=id)
-    book.delete()
-    return redirect('home')
-
-
-def add_book(request):
-    return redirect('home')
